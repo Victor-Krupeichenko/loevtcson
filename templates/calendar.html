@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2 class="content-chapter-title">Календарь событий</h2>
+    <div class="calendar-events" id="calendar">
+        <div class="calendar-btn">
+            <button class="btn-search" onclick="history.back()">Назад</button>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#calendar').fullCalendar({
+                events: '/api/events/',
+                header: {
+                    left: 'prev,next',
+                    center: 'title',
+                    right: ''
+                },
+                lang: 'ru',
+                timeFormat: 'H:mm',
+                firstDay: 1,
+                {#contentHeight: 450,#}
+                height: 480,
+                eventRender: function (event, element) {
+                    // Добавляем атрибуты для Bootstrap 5 Tooltip
+                    if (event.description) {
+                        element.attr('data-bs-toggle', 'tooltip');
+                        element.attr('data-bs-placement', 'top');
+                        element.attr('data-bs-original-title', event.description);
+                        // Убираем стандартный title
+                        element.attr('title', '');
+                    }
+                    // Меняем курсор
+                    element.css('cursor', 'pointer');
+                },
+                // Событие, которое срабатывает после того, как все события отрендерены
+                eventAfterRender: function (event, element) {
+                    // Инициализируем тултипы для каждого события
+                    if (event.description && typeof bootstrap !== 'undefined') {
+                        // Проверяем, не инициализирован ли уже тултип
+                        const el = element[0];
+                        if (!el.hasAttribute('data-bs-original-title')) {
+                            // Добавляем атрибут ещё раз для надёжности
+                            element.attr('data-bs-original-title', event.description);
+                        }
+                        // Создаём экземпляр Tooltip (Bootstrap 5)
+                        new bootstrap.Tooltip(el);
+                    }
+                },
+                // При смене вида (переключении месяца) пересоздаём тултипы для новых элементов
+                viewRender: function () {
+                    // Инициализируем тултипы для всех .fc-event, у которых ещё нет тултипа
+                    $('.fc-event').each(function () {
+                        const el = $(this);
+                        // Проверяем, есть ли уже тултип (по наличию data-bs-original-title или по экземпляру)
+                        if (el.attr('data-bs-toggle') === 'tooltip' && !el.data('bs.tooltip')) {
+                            new bootstrap.Tooltip(el[0]);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+{% endblock %}

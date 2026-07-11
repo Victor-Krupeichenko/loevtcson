@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    {% if news %}
+        <h2 class="content-chapter-title">Новости</h2>
+        <div class="body-all-news justify-content-center">
+            <div class="container-all-news d-flex flex-column">
+                <div class="d-flex flex-wrap overflow-auto justify-content-center">
+                    {% for item in news %}
+                        <div class="card all-news card-news-content all-news-content-body">
+                            <img src="{{ item.photo.url }}" class="card-img-top" alt="">
+                            <div class="card-body">
+                                <div class="card-title all-news-title">{{ item.title|truncatechars:50 }}</div>
+                                <div class="news-dt">
+                                    <img src="{% static 'img/calendar.png' %}" alt="">
+                                    <span class="date-format">{{ item.created_at|date:"d.m.Y" }}</span>
+                                </div>
+                                <a href="{{ item.get_absolute_url }}" class="btn-card-all-news d-block w-100 text-center">
+                                    Подробнее
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% if show_pagination %}
+            <div class="mt-auto">
+                {% include "_inc/pagination.html" %}
+            </div>
+        {% endif %}
+    {% endif %}
+{% endblock %}
+

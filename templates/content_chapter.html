@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    {% if chapter.contents %}
+        {% for content in contents %}
+            <h2 class="content-chapter-title">
+                {{ content.title }}
+            </h2>
+            <div class="content-chapter-content">
+                {{ content.content|safe }}
+            </div>
+            {% if content.files.all %}
+                <div class="attached-files">
+                    {% for file in content.files.all %}
+                        <div class="download-file">
+                            <a class="down-file-link" href="{{ file.file.url }}" download>
+                                <img class="download-file-icon" src="{% static 'img/paperclip.png' %}" alt="...">
+                                {{ file.filename }}
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% empty %}
+            <p>Нет содержимого для этого раздела</p>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+

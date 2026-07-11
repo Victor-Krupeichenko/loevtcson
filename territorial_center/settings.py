@@ -30,8 +30,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # ALLOWED_HOSTS = []
 
 DEBUG = os.getenv("DEBUG", "False") == "True"
-ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = ['.herokuapp.com', '.railway.app', 'localhost', '127.0.0.1']  # добавьте localhost
+ALLOWED_HOSTS = ['loevtcson-production.up.railway.app']
 CSRF_TRUSTED_ORIGINS = ['https://*.railway.app']
 
 # Раскомментируйте для HTTPS (если используете)

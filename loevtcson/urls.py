@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import AboutView, ChapterDetailView, NewsDetailView, NewsListView, search, event_list, calendar_view
+from .views import AboutView, ChapterDetailView, NewsDetailView, NewsListView, search, event_list, calendar_view, download_file
 
 urlpatterns = [
     path("", AboutView.as_view(), name="about"),
@@ -11,4 +11,5 @@ urlpatterns = [
     path('api/events/', event_list, name='event_list'),
     path('api/events/', event_list, name='event_list'),
     path('calendar/', calendar_view, name='calendar_view'),
+    path('download/<str:file_path>/', download_file, name='download_file'),
 ]

@@ -1,0 +1,41 @@
+.footer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 14px;
+    background-color: rgb(114 185 230 / 0.1);
+    color: #ffffff;
+    transition: font-size 0.3s ease;
+}
+
+.footer a {
+    display: block;
+    justify-content: center;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.footer img {
+    width: 50px;
+    height: 50px;
+}
+.url-title {
+    font-weight: 500;
+    color: #837e7e;
+}
+
+.urls_item:hover {
+    .url-title {
+        color: #DB08EAFF;
+    }
+}
+.footer p {
+    font-size: 10px;
+}
+
+
+
+
+
+
+
+

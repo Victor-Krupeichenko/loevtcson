@@ -1,0 +1,12 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block footer %}
+    <footer class="min-footer {{ jazzmin_ui.footer_class }}">
+        <div class="d-flex justify-content-end w-100">
+            <div class="mb-2" style="margin-right: 10px; font-weight: 600">
+                &copy; {% now "Y" %} {{ jazzmin_settings.copyright }}
+            </div>
+        </div>
+    </footer>
+{% endblock %}

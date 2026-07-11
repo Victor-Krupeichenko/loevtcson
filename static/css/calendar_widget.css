@@ -1,0 +1,82 @@
+.mini-calendar {
+    background: white;
+    padding: 6px 10px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px 0 rgb(9 207 72 / 0.75);
+    border: none;
+    font-size: 11px;
+    transition: box-shadow 0.3s ease;
+}
+
+
+.mini-calendar .fc-header-title h2,
+.mini-calendar .fc-header-title h2 a,
+.mini-calendar .fc-center h2,
+.mini-calendar .fc-center h2 a {
+    color: #007bff !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+}
+
+/*.mini-calendar .fc-header-title h2 a:hover,*/
+/*.mini-calendar .fc-center.conf h2 a:hover {*/
+/*    color: #1a5276 !important;*/
+/*    text-decoration: none !important;*/
+/*}*/
+
+
+.mini-calendar .fc-button {
+    font-size: 11px;
+    padding: 2px 6px;
+    color: #2c3e50;
+    background: #ecf0f1;
+    border-color: #bdc3c7;
+}
+
+
+.mini-calendar .fc-day-header {
+    font-size: 8px;
+    color: #7f8c8d;
+    padding: 4px 0;
+}
+
+
+.mini-calendar .fc-day-number {
+    font-size: 10px;
+    color: #34495e;
+    padding: 2px;
+}
+.fc-time {
+    font-size: 8px;
+}
+
+
+.mini-calendar .fc-event {
+    font-size: 9px;
+    background-color: #1a5276;
+    border: none;
+    border-radius: 3px;
+    color: white;
+}
+
+
+.mini-calendar .fc-basic-view .fc-body .fc-row {
+    min-height: 0.4rem;
+}
+
+
+.mini-calendar .fc-today-button {
+    display: none;
+}
+
+.mini-calendar-btn {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.mini-calendar-btn .btn-search {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+}

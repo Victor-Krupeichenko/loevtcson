@@ -1,0 +1,38 @@
+{% load static %}
+
+
+<div class="d-flex justify-content-end w-75 ms-auto mb-2 mt-2">
+    <div class="mini-calendar" id="mini-calendar" style="width:100%;">
+        <div class="mini-calendar-btn">
+            <button class="btn-search" type="button" onclick="location.href='{% url 'calendar_view' %}'">Смотреть
+            </button>
+        </div>
+    </div>
+</div>
+
+{##}
+
+<script>
+    $(document).ready(function () {
+        $('#mini-calendar').fullCalendar({
+            events: '/api/events/',
+            header: {
+                left: 'prev,next',
+                center: 'title',
+                right: ''
+            },
+            defaultView: 'month',
+            height: 'auto',                  // Автоматическая высота
+            aspectRatio: 1.2,                // Соотношение сторон для компактности
+            lang: 'ru',
+            timeFormat: 'H:mm',
+            firstDay: 1,
+            eventLimit: 2,
+            eventRender: function (event, element) {
+                if (event.title.length > 20) {
+                    element.find('.fc-event-title').text(event.title.substr(0, 18) + '…');
+                }
+            }
+        });
+    });
+</script>

@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 class="content-chapter-title">Поиск</h2>
+
+    {% if message %}
+        <div class="alert alert-info">{{ message }}</div>
+    {% elif query %}
+        <div>Искали: <span class="search-query-result">{{ query }}</span></div>
+        <div>Найдено: <span class="search-query-result">{{ page_obj.paginator.count }}</span></div>
+
+        {% if page_obj %}
+            <ul class="search-results">
+                {% for item in page_obj %}
+                    <li>
+                        <h4>
+                            <a href="{{ item.get_absolute_url }}">
+                                {{ item.title }}
+                            </a>
+                        </h4>
+                        {% if item.snippet %}
+                            <p class="snippet">{{ item.snippet|safe }}</p>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+            {% if page_obj.paginator.num_pages > 1 %}
+                <div class="container">
+                    {% if page_obj.paginator.num_pages > 1 %}
+                        <ul class="pagination justify-content-center gap-2">
+                            <!-- Стрелка "Назад" (только если есть предыдущая страница) -->
+                            {% if page_obj.has_previous %}
+                                <li class="page-item previous">
+                                    <a class="page-link" href="?q={{ query }}&page={{ page_obj.previous_page_number }}">
+                                        <span>&lt;</span>
+                                    </a>
+                                </li>
+                            {% endif %}
+                            {% for page_num in page_obj.paginator.page_range %}
+                                {% if page_num == 1 or page_num == page_obj.paginator.num_pages %}
+                                    <li class="page-item {% if page_num == page_obj.number %}active{% endif %}">
+                                        <a class="page-link"
+                                           href="?q={{ query }}&page={{ page_num }}">{{ page_num }}</a>
+                                    </li>
+                                {% elif page_num >= page_obj.number|add:-2 and page_num <= page_obj.number|add:2 %}
+                                    <li class="page-item {% if page_num == page_obj.number %}active{% endif %}">
+                                        <a class="page-link"
+                                           href="?q={{ query }}&page={{ page_num }}">{{ page_num }}</a>
+                                    </li>
+                                {% elif page_num == page_obj.number|add:-3 or page_num == page_obj.number|add:3 %}
+                                    <li class="page-item disabled">
+                                        <span class="page-link">…</span>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if page_obj.has_next %}
+                                <li class="page-item next">
+                                    <a class="page-link" href="?q={{ query }}&page={{ page_obj.next_page_number }}">
+                                        <span>&gt;</span>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% else %}
+            <p>Ничего не найдено.</p>
+        {% endif %}
+    {% endif %}
+{% endblock %}

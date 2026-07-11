@@ -7,7 +7,6 @@ from django.http import JsonResponse
 from django.db.models import Q
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.conf import settings
-from django.http import FileResponse, Http404
 
 
 class AboutView(ListView):
@@ -245,24 +244,3 @@ def event_list(request):
 
 def calendar_view(request):
     return render(request, 'calendar.html')
-
-
-def download_file(request, file_path):
-    """
-    Скачать файл
-    :param request: запрос
-    :param file_path: путь к файлу
-    :return:
-    """
-    # Строим полный путь к файлу в папке MEDIA_ROOT
-    file_full_path = os.path.join(settings.MEDIA_ROOT, file_path)
-
-    # Проверяем, существует ли файл
-    if not os.path.exists(file_full_path):
-        raise Http404("Файл не найден")
-
-    # Открываем файл и создаем ответ с заголовком для скачивания
-    response = FileResponse(open(file_full_path, 'rb'))
-    # Явно говорим браузеру, что это вложение и его нужно скачать
-    response['Content-Disposition'] = f'attachment; filename="{os.path.basename(file_path)}"'
-    return response

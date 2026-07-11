@@ -1,0 +1,12 @@
+<ul>
+{% if about_chapter %}
+    <li class="chapters-item">
+        <a href="{% url 'about' %}">О нас</a>
+    </li>
+{% endif %}
+    {% for item in chapters %}
+        <li class="chapters-item">
+            <a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
+        </li>
+    {% endfor %}
+</ul>

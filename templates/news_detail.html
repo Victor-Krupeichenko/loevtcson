@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="detail-news-title">
+        <p>{{ news.title }}</p>
+        <img class="img-top" src="{{ news.photo.url }}" alt="">
+    </div>
+    <div class="content-news detail-view" style="font-size: 14px;">
+        {{ news.content|safe }}
+    </div>
+    <div class="justify-content-center">
+        <div class="container-all-news d-flex flex-column">
+            <div class="d-flex flex-wrap row-cols-1 overflow-auto justify-content-center">
+                {% for item in news.images.all %}
+                    <div class="card all-news card-news-content card-news-image">
+                        <a href="{{ item.image.url }}" data-lightbox="news-gallery" data-title="{{ news.title }}">
+                            <img src="{{ item.image.url }}" class="detail-news-image" alt="">
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center detail-news-button">
+    <button class="btn-detail-news-back" onclick="history.back()">Назад</button>
+    </div>
+{% endblock %}

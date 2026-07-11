@@ -1,0 +1,31 @@
+.chapters-item {
+    color: #004080;
+    font-size: 12px;
+    font-weight: 700;
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    background: rgba(0, 64, 128, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 3px solid rgba(0, 64, 128, 0.2);
+    margin-bottom: 10px;
+    list-style-type: none;
+}
+
+.chapters-item a {
+    text-decoration: none;
+    width: 100%;
+    display: block;
+}
+
+.chapters-item:hover {
+    background: rgba(0, 64, 128, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 64, 128, 0.4);
+
+    a {
+        color: #707477;
+    }
+}

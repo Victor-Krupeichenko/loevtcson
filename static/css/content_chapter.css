@@ -1,0 +1,43 @@
+.content-chapter-title {
+    padding-left: 0.7rem;
+    color: #004080;
+    border-left: 7px solid #FF6B6B;
+    font-weight: 700;
+    margin-bottom: 50px;
+    font-size: 22px;
+}
+
+.content-chapter-content {
+    margin: 0;
+    padding-left: 2.5rem;
+    color: #000000;
+    font-size: 14px;
+}
+
+
+
+.download-file {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+
+}
+
+.download-file a {
+    text-decoration: none;
+    color: blue;
+    font-size: 12px;
+}
+
+.download-file img {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+}
+
+.text-huge {
+    font-size: 20px;
+}
+
+
+

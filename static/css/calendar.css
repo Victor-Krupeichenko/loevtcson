@@ -1,0 +1,71 @@
+#calendar .fc-day-grid-container .fc-row,
+#calendar .fc-basic-view .fc-body .fc-row {
+    height: auto !important;
+}
+
+/* Уменьшаем отступы внутри ячеек */
+#calendar .fc-day-number {
+    font-size: 12px;
+    padding: 2px;
+}
+
+#calendar .fc-day-header {
+    font-size: 12px;
+    padding: 4px 0;
+}
+
+/* Стили для событий (увеличенный шрифт и перенос) */
+#calendar .fc-day-grid-event {
+    font-size: 16px !important; /* увеличенный шрифт для названия события */
+    padding: 2px 6px; /* чуть больше отступов для комфорта */
+    white-space: normal; /* разрешаем перенос длинных названий */
+    word-break: break-word; /* переносим слова при необходимости */
+}
+
+#calendar .fc-event-container {
+    padding: 0 2px;
+}
+
+/* Заголовок календаря (месяц/год) */
+#calendar .fc-header-title h2,
+#calendar .fc-header-title h2 a,
+#calendar .fc-center h2,
+#calendar .fc-center h2 a {
+    color: #007bff !important;
+    font-size: 34px !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+}
+
+#calendar .fc-button {
+    font-size: 13px;
+    padding: 2px 10px;
+}
+
+/* === КУРСОР И ПОДСКАЗКИ (TOOLTIP) === */
+.fc-event {
+    cursor: pointer !important;
+}
+
+.tooltip-inner {
+    font-size: 16px !important;
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+    max-width: 300px !important;
+    background-color: #007bff !important;
+}
+
+/* Дополнительно: выделение сегодняшнего дня (опционально) */
+#calendar .fc-today {
+    background-color: rgba(0, 123, 255, 0.1) !important;
+}
+
+.calendar-events .calendar-btn {
+    margin-top: 10px;
+    text-align: center;
+}
+.calendar-events .btn-search {
+    width: 10%;
+    padding-left: 10px;
+    padding-right: 10px;
+}

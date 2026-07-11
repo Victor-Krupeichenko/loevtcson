@@ -1,0 +1,24 @@
+{% if news_count %}
+    <div class="d-flex justify-content-end w-75 ms-auto">
+        <h3 class="chapters-item">
+            <a href="{% url 'all-news' %}">Новости</a>
+        </h3>
+    </div>
+{% endif %}
+
+{% for item in news %}
+    <div class="d-flex justify-content-end mb-1" id="widget-news">
+        <div class="card card-news-content top-news w-75 ms-auto">
+            <a href="{{ item.get_absolute_url }}">
+                <img src="{{ item.photo.url }}" class="card-img-top" style="height:110px; object-fit:cover;" alt="...">
+                <div class="card-body p-1">
+                    <p class="card-text small mb-0" id="card-text">{{ item.title|truncatechars:50 }}</p>
+                </div>
+            </a>
+        </div>
+    </div>
+{% endfor %}
+
+
+
+

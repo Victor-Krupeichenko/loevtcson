@@ -1,0 +1,16 @@
+.page-item a {
+    background-color: #eeeeee;
+    border-radius: 5px;
+    border: none;
+    font-size: 10px;
+    color: rgb(96 92 92 / 0.89);
+    outline: none;
+}
+
+.page-item a:focus {
+    box-shadow: none;
+}
+
+.page-item.active .page-link {
+    background: #1bc4dc;
+}

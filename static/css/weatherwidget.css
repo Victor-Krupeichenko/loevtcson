@@ -1,0 +1,14 @@
+.weatherwidget-io {
+    opacity: 1;
+    pointer-events: none;
+    border-radius: 10px;
+    margin: 0 auto;
+    transition: box-shadow 0.3s ease;
+    box-shadow: 0 0 20px 0 rgba(9, 107, 207, 0.7);
+    border: none;
+}
+
+.weather {
+    width: 90%;
+    margin: 0 auto;
+}

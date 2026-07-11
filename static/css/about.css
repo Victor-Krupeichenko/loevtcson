@@ -1,0 +1,33 @@
+.about-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.about-img {
+    text-align: start;
+    margin-right: 5px;
+}
+
+.about-info {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.about-mail {
+    text-decoration: none;
+}
+
+.about-info-content {
+    font-size: 14px;
+}
+.about-content td{
+    font-size: 11px;
+}
+.about-content a{
+    font-size: 12px;
+}
+
+
+

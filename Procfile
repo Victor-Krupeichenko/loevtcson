@@ -1,0 +1,1 @@
+web: gunicorn territorial_center.wsgi

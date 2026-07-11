@@ -1,0 +1,14 @@
+<div class="row row-cols-5">
+    {% for item in urls %}
+        <div class="urls_item col">
+        <a href="{{ item.url }}">
+            <img src="{{ item.logo.url }}" class="footer-logo-url" alt="...">
+
+                <p class="url-title">
+                    {{ item.title }}
+                </p>
+            </a>
+        </div>
+    {% endfor %}
+</div>
+

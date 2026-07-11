@@ -30,8 +30,8 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # ALLOWED_HOSTS = []
 
 DEBUG = os.getenv("DEBUG", "False") == "True"
-ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = ['.herokuapp.com', '.railway.app', 'localhost', '127.0.0.1']  # добавьте localhost
+#ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.railway.app']  # добавьте localhost
 CSRF_TRUSTED_ORIGINS = ['https://*.railway.app']
 
 # Раскомментируйте для HTTPS (если используете)
@@ -109,15 +109,15 @@ WSGI_APPLICATION = 'territorial_center.wsgi.application'
 #             'PORT': os.getenv("PORT"),
 #         }
 #     }
-DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
 # DATABASES = {
-#     'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
-# }
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': BASE_DIR / 'db.sqlite3',
+#         }
+#     }
+DATABASES = {
+    'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
@@ -148,13 +148,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static')
+# ]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 # Если что-то будет не так со статикой, то закомментирую этот код и раскомментирую верхний STATICFILES_STORAGE
 # Хранилище статики заменено на стандартное (без WhiteNoise)
 # STORAGES = {

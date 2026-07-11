@@ -1,0 +1,23 @@
+{% if object_list %}
+    <h2 class="content-chapter-title">О нас</h2>
+    <div style="padding-left: 2.5rem;">
+    {% for item in about %}
+        <h3 class="about-title">{{ item.title }}</h3>
+        <img src="{{ item.photo.url }}" alt="" class="float-start about-img">
+        <div class="about-content" style="font-size: 14px;">
+            <span class="about-info">Директор</span>: <span class="about-info-content">{{ item.director }}</span>,
+            <span class="about-info-content">кабинет № {{ item.cabinet }},</span>
+           <span class="about-info-content"> телефон: {{ item.telephone }}</span><br>
+            <span class="about-info">Юридический адрес</span>: <span class="about-info-content">{{ item.address }}</span><br>
+            <span class="about-info">Телефон</span>: <span class="about-info-content">{{ item.telephone }}</span><br>
+            <span class="about-info">Адрес электронной почты</span>:
+            <span class="about-info-content"><a class="about-mail" href="mailto:{{ item.email }}">{{ item.email }}</a></span><br>
+            {{ item.info | safe }}
+            {{ item.content | safe }}
+        </div>
+    {% endfor %}
+    </div>
+{% endif %}
+
+
+

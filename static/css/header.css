@@ -1,0 +1,33 @@
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.97);
+    color: #004080;
+    margin-bottom: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    
+}
+
+.header-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    transition: text-shadow 0.3s, transform 0.3s;
+}
+
+.header:hover .header-link,
+.header:active .header-link {
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    transform: scale(1.03);
+}
+
+.header:hover,
+.header:active {
+    cursor: pointer;
+}
+

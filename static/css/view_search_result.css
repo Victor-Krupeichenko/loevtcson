@@ -1,0 +1,25 @@
+.search-query-result {
+    font-weight: 700;
+}
+.search-results {
+    margin-top: 10px;
+}
+.search-results li {
+    margin-bottom: 20px;
+    list-style: none;
+}
+.search-results .snippet {
+    margin: 5px 0 0 0;
+    color: #555;
+    font-size: 0.95em;
+}
+.search-results .snippet strong {
+    color: #d9534f;
+    font-weight: 700;
+}
+
+.search-results a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+}

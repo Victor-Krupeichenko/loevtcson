@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-end w-75 ms-auto mb-2 mt-2">
+    <div id="map" style="width:100%; height:200px; box-shadow: 0 0 20px 0 rgb(5 218 227 / 0.75);"></div>
+</div>
+
+<script>
+    let lat = 51.950037;
+    let lon = 30.798448;
+
+    let map = L.map('map', {
+        fullscreenControl: true,
+        attributionControl: false
+    }).setView([lat, lon], 17);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        maxZoom: 19,
+        subdomains: 'abcd'
+    }).addTo(map);
+
+    L.control.scale({
+        position: 'bottomright',
+        metric: true,
+        imperial: false
+    }).addTo(map);
+
+    let redIcon = L.icon({
+        iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+        shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
+    let marker = L.marker([lat, lon], { icon: redIcon }).addTo(map);
+
+    marker.bindPopup(`
+        <div style="text-align: center;">
+            <strong style="font-size: 11px; font-weight: 600; padding: 0;">🏠 ул. Шевелева, д. 59</strong><br>
+        </div>
+    `, {
+        className: 'custom-popup',
+        maxWidth: 280
+    });
+    marker.openPopup();
+</script>
+

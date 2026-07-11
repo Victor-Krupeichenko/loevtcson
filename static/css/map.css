@@ -1,0 +1,29 @@
+#map {
+    width: 260px;
+    height: 260px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    margin: 0 auto 10px;
+}
+
+.custom-popup .leaflet-popup-content-wrapper {
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.2);
+}
+
+.custom-popup .leaflet-popup-content {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.custom-popup .leaflet-popup-content strong {
+    color: #2c3e50;
+    font-size: 16px;
+}
+
+.custom-popup .leaflet-popup-tip {
+    background: #fff;
+}

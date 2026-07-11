@@ -42,7 +42,7 @@ if not DEBUG:
     # SECURE_SSL_REDIRECT = True
 
 DATABASEPOSTGRESQL = True
-PAGINATE_BY = 1
+PAGINATE_BY = os.getenv("PAGINATE_BY")
 
 # Application definition
 
@@ -156,6 +156,7 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+WHITENOISE_ROOT = MEDIA_ROOT
 # Если что-то будет не так со статикой, то закомментирую этот код и раскомментирую верхний STATICFILES_STORAGE
 # Хранилище статики заменено на стандартное (без WhiteNoise)
 # STORAGES = {
